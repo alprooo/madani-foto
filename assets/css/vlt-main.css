@@ -335,14 +335,14 @@
 
 .has-white-color
 {
-    color: #fff;
+    color: #ddff23;
 }
 
 /* MESSAGE COLORS
 -------------------------------------------- */
 .vlt-display-1
 {
-    font-size: 1rem; 
+    font-size: 1.5rem; 
 
     display: block;
 }
@@ -1493,7 +1493,7 @@ select:focus::-webkit-input-placeholder
 {
     position: absolute;
     top: 0;
-    left: 0;
+    left: 150px;
 
     display: -webkit-box;
     display: -webkit-flex;
@@ -1567,6 +1567,8 @@ select:focus::-webkit-input-placeholder
     display: inline-block;
 
     vertical-align: middle;
+
+    font-size: 2rem;
 }
 /* .vlt-navbar .vlt-navbar-logo img
 {
