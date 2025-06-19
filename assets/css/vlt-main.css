@@ -1466,7 +1466,7 @@ select:focus::-webkit-input-placeholder
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
-    display:         flex;
+    display: flex;
 
     padding: 1.875rem;
 
