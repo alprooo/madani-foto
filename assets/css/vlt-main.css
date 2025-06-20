@@ -1064,7 +1064,7 @@ h2,
 h3,
 .h3
 {
-    font-size: 3.125rem;
+    font-size: 4.125rem;
     line-height: 1.35;
 }
 
@@ -2081,11 +2081,11 @@ select:focus::-webkit-input-placeholder
 -------------------------------------------- */
 [data-anchor='Home'] p
 {
-    font-size: .9375rem; 
+    font-size: 1.2rem; 
 
     max-width: 23.125rem;
 
-    color: rgba(255, 255, 255, .6);
+    color: rgba(255, 255, 255, .7);
 }
 
 [data-anchor='About'] p
