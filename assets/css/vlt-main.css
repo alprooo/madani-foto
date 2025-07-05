@@ -3751,3 +3751,10 @@ select:focus::-webkit-input-placeholder
         -ms-transform: scale(1.1);
             transform: scale(1.1);
 }
+.years-label {
+  font-size: 0.1em;         /* smaller than .9 */
+  vertical-align: super;    /* raises it next to 9 */
+  margin-left: 2px;
+  color: #7d4ad1;              /* or match your theme */
+  opacity: 0.7;             /* optional, for subtle effect */
+}
