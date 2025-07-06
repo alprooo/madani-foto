@@ -3755,6 +3755,8 @@ select:focus::-webkit-input-placeholder
   font-size: 0.1em;         /* smaller than .9 */
   vertical-align: super;    /* raises it next to 9 */
   margin-left: 2px;
-  color: #7d4ad1;              /* or match your theme */
+  color: #3cbffb;              /* or match your theme */
   opacity: 0.7;             /* optional, for subtle effect */
 }
+
+
