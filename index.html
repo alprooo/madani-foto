@@ -1,576 +1,689 @@
 <!DOCTYPE html>
-<html class="no-js vlt-is--homepage vlt-is--footer-fixed" lang="en">
-
+<html lang="id">
 <head>
-	<meta charset="utf-8">
-	<title>Madani Foto</title>
-	<meta name="description" content="Personal CV/Resume HTML5 Template">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<!--Favicon-->
-	<link rel="icon" type="image/svg" href="assets/img/root/favicon.svg">
-	<!--Framework-->
-	<link rel="stylesheet" href="assets/css/framework/bootstrap.min.css">
-	<!--Fonts-->
-	<link rel="stylesheet" href="assets/fonts/Gilroy/style.css">
-	<!--Icons-->
-	<link rel="stylesheet" href="assets/fonts/LineIcons/Pro-Regular/font-css/LineIcons.css">
-	<!--Plugins-->
-	<link rel="stylesheet" href="assets/css/vlt-plugins.min.css">
-	<!--Style-->
-	<link rel="stylesheet" href="assets/css/vlt-main.css">
-	<!--Custom-->
-	<link rel="stylesheet" href="assets/css/custom.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Madani Foto — Cetak Foto & Studio Profesional</title>
+  <meta name="description" content="Toko Madani Foto — Layanan cetak foto, foto studio, fotocopy, ATK, cetak undangan, nametag, jersey printing, dan agen skincare Batrisyia Herbal.">
+  <link rel="icon" type="image/svg+xml" href="assets/img/root/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy-950: #040d1a;
+      --navy-900: #060f1e;
+      --navy-800: #0b1b35;
+      --navy-700: #112044;
+      --navy-600: #162756;
+      --gold-600: #a87c08;
+      --gold-500: #c9980a;
+      --gold-400: #d4a820;
+      --gold-300: #e4be4a;
+      --gold-200: #f0d080;
+      --white: #ffffff;
+      --text-primary: #f1f5f9;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+      --border: rgba(212,168,32,0.18);
+      --card-bg: rgba(11,27,53,0.85);
+      --t: all 0.3s ease;
+      --r: 12px;
+      --rl: 20px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--navy-800);
+      color: var(--text-primary);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    h1, h2, h3, h4 { font-family: 'Playfair Display', serif; line-height: 1.2; }
+    img { max-width: 100%; height: auto; display: block; }
+    a { text-decoration: none; color: inherit; }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+    /* ── NAVBAR ── */
+    .navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      padding: 18px 0; transition: var(--t);
+    }
+    .navbar.scrolled {
+      background: rgba(4,13,26,0.96);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+    }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; }
+    .nav-logo img { height: 38px; width: auto; }
+    .nav-logo-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px; font-weight: 700; color: var(--gold-400); letter-spacing: .3px;
+    }
+    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+    .nav-links a { font-size: 14px; font-weight: 500; color: var(--text-secondary); transition: var(--t); }
+    .nav-links a:hover { color: var(--gold-400); }
+    .btn-wa {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #25D366; color: #fff; padding: 10px 20px;
+      border-radius: 50px; font-size: 14px; font-weight: 600; transition: var(--t);
+    }
+    .btn-wa:hover { background: #1da851; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(37,211,102,.3); }
+    .hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      cursor: pointer; background: none; border: none; padding: 4px;
+    }
+    .hamburger span { width: 24px; height: 2px; background: var(--text-primary); border-radius: 2px; transition: var(--t); }
+
+    /* ── MOBILE MENU ── */
+    .mobile-menu {
+      position: fixed; inset: 0; background: rgba(4,13,26,.98); z-index: 999;
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 36px;
+      opacity: 0; pointer-events: none; transition: var(--t);
+    }
+    .mobile-menu.open { opacity: 1; pointer-events: all; }
+    .mobile-menu a { font-family: 'Playfair Display', serif; font-size: 28px; color: var(--white); transition: var(--t); }
+    .mobile-menu a:hover { color: var(--gold-400); }
+    .mobile-close {
+      position: absolute; top: 20px; right: 24px;
+      background: none; border: none; color: var(--white); font-size: 36px; cursor: pointer; line-height: 1;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh; display: flex; align-items: center;
+      position: relative; overflow: hidden; padding: 120px 0 80px;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse at 15% 55%, rgba(201,152,10,.14) 0%, transparent 55%),
+        radial-gradient(ellipse at 85% 20%, rgba(11,27,53,.8) 0%, transparent 50%),
+        linear-gradient(140deg, var(--navy-950) 0%, var(--navy-700) 55%, var(--navy-950) 100%);
+    }
+    .hero-grid {
+      position: absolute; inset: 0;
+      background-image: linear-gradient(rgba(212,168,32,.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(212,168,32,.04) 1px, transparent 1px);
+      background-size: 64px 64px;
+    }
+    .hero-glow {
+      position: absolute; width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(201,152,10,.13) 0%, transparent 70%);
+      top: 50%; left: 40%; transform: translate(-50%,-50%); pointer-events: none;
+    }
+    .hero-content { position: relative; z-index: 1; max-width: 760px; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: rgba(201,152,10,.1); border: 1px solid rgba(201,152,10,.3);
+      color: var(--gold-300); padding: 7px 18px; border-radius: 50px;
+      font-size: 13px; font-weight: 600; letter-spacing: .4px; margin-bottom: 28px;
+    }
+    .hero-badge::before {
+      content: ''; width: 8px; height: 8px;
+      background: var(--gold-400); border-radius: 50%; animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%,100% { opacity: 1; transform: scale(1); }
+      50% { opacity: .5; transform: scale(1.4); }
+    }
+    .hero h1 { font-size: clamp(44px,7vw,82px); font-weight: 700; color: var(--white); margin-bottom: 6px; }
+    .hero h1 .gold { color: var(--gold-400); }
+    .hero-sub { font-size: clamp(17px,2.8vw,26px); color: var(--text-secondary); font-weight: 400; margin-bottom: 22px; }
+    .hero-desc { font-size: 16px; color: var(--text-secondary); max-width: 520px; margin-bottom: 40px; line-height: 1.8; }
+    .hero-actions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: linear-gradient(135deg, var(--gold-500), var(--gold-300));
+      color: var(--navy-950); padding: 14px 32px; border-radius: 50px;
+      font-size: 15px; font-weight: 700; transition: var(--t); border: none; cursor: pointer;
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(201,152,10,.4); }
+    .btn-outline {
+      display: inline-flex; align-items: center; gap: 10px;
+      border: 1.5px solid var(--border); color: var(--text-primary);
+      padding: 14px 32px; border-radius: 50px; font-size: 15px; font-weight: 600; transition: var(--t);
+    }
+    .btn-outline:hover { border-color: var(--gold-400); color: var(--gold-400); }
+    .hero-stats {
+      display: flex; gap: 40px; margin-top: 56px;
+      padding-top: 40px; border-top: 1px solid var(--border); flex-wrap: wrap;
+    }
+    .stat-num { font-family: 'Playfair Display', serif; font-size: 38px; font-weight: 700; color: var(--gold-400); line-height: 1; }
+    .stat-label { font-size: 13px; color: var(--text-muted); margin-top: 6px; }
+
+    /* ── SECTION BASE ── */
+    section { padding: 100px 0; }
+    .sec-label {
+      display: inline-flex; align-items: center; gap: 10px;
+      color: var(--gold-400); font-size: 12px; font-weight: 700;
+      letter-spacing: 2px; text-transform: uppercase; margin-bottom: 14px;
+    }
+    .sec-label::before { content: ''; width: 24px; height: 2px; background: var(--gold-400); }
+    .sec-title { font-size: clamp(28px,4vw,46px); font-weight: 700; color: var(--white); margin-bottom: 16px; }
+    .sec-desc { font-size: 16px; color: var(--text-secondary); max-width: 540px; line-height: 1.8; }
+    .tc { text-align: center; }
+    .tc .sec-label { justify-content: center; }
+    .tc .sec-desc { margin: 0 auto; }
+
+    /* ── SERVICES ── */
+    .services {
+      background: var(--navy-900); position: relative;
+    }
+    .services::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold-500), transparent);
+    }
+    .services-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(255px,1fr));
+      gap: 22px; margin-top: 56px;
+    }
+    .svc-card {
+      background: var(--card-bg); border: 1px solid var(--border);
+      border-radius: var(--rl); padding: 30px; transition: var(--t);
+      position: relative; overflow: hidden; cursor: default;
+    }
+    .svc-card::after {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold-400), transparent);
+      opacity: 0; transition: var(--t);
+    }
+    .svc-card:hover { border-color: rgba(212,168,32,.4); transform: translateY(-6px); box-shadow: 0 20px 60px rgba(0,0,0,.35); }
+    .svc-card:hover::after { opacity: 1; }
+    .svc-icon {
+      width: 58px; height: 58px;
+      background: linear-gradient(135deg,rgba(201,152,10,.15),rgba(201,152,10,.05));
+      border: 1px solid rgba(201,152,10,.2); border-radius: 15px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--gold-400); margin-bottom: 20px; transition: var(--t);
+    }
+    .svc-card:hover .svc-icon { background: linear-gradient(135deg,rgba(201,152,10,.28),rgba(201,152,10,.1)); box-shadow: 0 8px 24px rgba(201,152,10,.2); }
+    .svc-icon svg { width: 26px; height: 26px; stroke: currentColor; fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+    .svc-card h3 { font-family: 'Plus Jakarta Sans',sans-serif; font-size: 17px; font-weight: 700; color: var(--white); margin-bottom: 8px; }
+    .svc-card p { font-size: 13.5px; color: var(--text-secondary); line-height: 1.65; }
+
+    /* ── WHY US ── */
+    .why-us { background: linear-gradient(180deg, var(--navy-800) 0%, var(--navy-700) 100%); }
+    .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .why-features { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 40px; }
+    .feat { display: flex; gap: 14px; }
+    .feat-icon {
+      width: 44px; height: 44px; min-width: 44px;
+      background: rgba(201,152,10,.1); border-radius: 12px;
+      display: flex; align-items: center; justify-content: center; color: var(--gold-400);
+    }
+    .feat-icon svg { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .feat-body h4 { font-family: 'Plus Jakarta Sans',sans-serif; font-size: 14px; font-weight: 700; color: var(--white); margin-bottom: 5px; }
+    .feat-body p { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+    .why-visual { position: relative; }
+    .why-img-wrap { border-radius: var(--rl); overflow: hidden; position: relative; }
+    .why-img-wrap img { width: 100%; height: 480px; object-fit: cover; }
+    .why-img-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 50%, rgba(4,13,26,.75)); }
+    .why-floater {
+      position: absolute; bottom: 24px; left: 24px; right: 24px;
+      background: rgba(4,13,26,.88); backdrop-filter: blur(14px);
+      border: 1px solid var(--border); border-radius: var(--r);
+      padding: 18px 22px; display: flex; align-items: center; gap: 16px;
+    }
+    .floater-icon {
+      width: 48px; height: 48px; min-width: 48px;
+      background: linear-gradient(135deg, var(--gold-500), var(--gold-300));
+      border-radius: 12px; display: flex; align-items: center; justify-content: center;
+      font-size: 22px; color: var(--navy-950); font-weight: 700;
+    }
+    .floater-body h5 { font-family: 'Plus Jakarta Sans',sans-serif; font-size: 15px; font-weight: 700; color: var(--white); }
+    .floater-body p { font-size: 13px; color: var(--text-secondary); }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials { background: var(--navy-900); }
+    .testi-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; margin-top: 56px; }
+    .testi-card {
+      background: var(--card-bg); border: 1px solid var(--border);
+      border-radius: var(--rl); padding: 30px; transition: var(--t);
+    }
+    .testi-card:hover { border-color: rgba(212,168,32,.38); transform: translateY(-4px); }
+    .stars { color: var(--gold-400); font-size: 15px; margin-bottom: 18px; letter-spacing: 2px; }
+    .testi-card p { font-size: 14.5px; color: var(--text-secondary); line-height: 1.75; font-style: italic; margin-bottom: 22px; }
+    .testi-author { display: flex; align-items: center; gap: 12px; }
+    .avatar {
+      width: 42px; height: 42px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold-500), var(--navy-600));
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 15px; color: var(--white); flex-shrink: 0;
+    }
+    .author-name { font-size: 14px; font-weight: 700; color: var(--white); }
+    .author-role { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+
+    /* ── CTA ── */
+    .cta { background: linear-gradient(135deg, var(--navy-700) 0%, var(--navy-950) 100%); position: relative; overflow: hidden; }
+    .cta::before {
+      content: ''; position: absolute; width: 900px; height: 900px;
+      background: radial-gradient(circle, rgba(201,152,10,.09) 0%, transparent 70%);
+      top: 50%; left: 50%; transform: translate(-50%,-50%);
+    }
+    .cta-inner { position: relative; z-index: 1; text-align: center; max-width: 700px; margin: 0 auto; }
+    .cta-inner .sec-title { font-size: clamp(30px,5vw,50px); margin-bottom: 18px; }
+    .cta-inner > p { font-size: 16px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 40px; }
+    .cta-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .btn-wa-lg {
+      display: inline-flex; align-items: center; gap: 12px;
+      background: #25D366; color: #fff; padding: 16px 36px;
+      border-radius: 50px; font-size: 16px; font-weight: 700; transition: var(--t);
+    }
+    .btn-wa-lg:hover { background: #1da851; transform: translateY(-2px); box-shadow: 0 16px 48px rgba(37,211,102,.32); }
+    .btn-wa-lg svg { width: 22px; height: 22px; fill: #fff; }
+    .cta-meta { display: flex; justify-content: center; gap: 40px; margin-top: 48px; flex-wrap: wrap; }
+    .meta-item { display: flex; align-items: center; gap: 10px; color: var(--text-secondary); font-size: 14px; }
+    .meta-item svg { width: 18px; height: 18px; stroke: var(--gold-400); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+    /* ── FOOTER ── */
+    .footer { background: var(--navy-900); border-top: 1px solid var(--border); padding: 60px 0 32px; }
+    .footer-top { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 48px; padding-bottom: 48px; border-bottom: 1px solid var(--border); }
+    .footer-brand .nav-logo-text { font-size: 22px; display: block; margin-bottom: 14px; }
+    .footer-brand p { font-size: 14px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 22px; }
+    .socials { display: flex; gap: 10px; }
+    .socials a {
+      width: 40px; height: 40px;
+      background: rgba(201,152,10,.08); border: 1px solid var(--border);
+      border-radius: 10px; display: flex; align-items: center; justify-content: center;
+      color: var(--text-secondary); font-size: 17px; transition: var(--t);
+    }
+    .socials a:hover { background: rgba(201,152,10,.18); color: var(--gold-400); border-color: var(--gold-400); }
+    .footer-col h5 { font-family: 'Plus Jakarta Sans',sans-serif; font-size: 12px; font-weight: 700; color: var(--white); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 18px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+    .footer-col ul a { font-size: 14px; color: var(--text-secondary); transition: var(--t); }
+    .footer-col ul a:hover { color: var(--gold-400); }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 30px; flex-wrap: wrap; gap: 10px; }
+    .footer-bottom p { font-size: 13px; color: var(--text-muted); }
+
+    /* ── REVEAL ── */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.in { opacity: 1; transform: translateY(0); }
+    .d1 { transition-delay: .1s; } .d2 { transition-delay: .2s; } .d3 { transition-delay: .3s; } .d4 { transition-delay: .4s; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width:1024px) {
+      .why-grid { grid-template-columns: 1fr; gap: 48px; }
+      .why-visual { order: -1; }
+      .testi-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width:768px) {
+      section { padding: 72px 0; }
+      .nav-links, .btn-wa { display: none; }
+      .hamburger { display: flex; }
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .why-features { grid-template-columns: 1fr; }
+      .testi-grid { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr; gap: 32px; }
+      .hero-stats { gap: 24px; }
+      .cta-btns { flex-direction: column; align-items: center; }
+      .cta-meta { gap: 20px; }
+    }
+    @media (max-width:480px) {
+      .services-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+    }
+  </style>
 </head>
+<body>
 
-<body class=" animsition">
-	<!--Header-->
-	<header class="vlt-header vlt-header--default">
-		<div class="vlt-navbar vlt-navbar--main vlt-navbar--transparent vlt-navbar--sticky">
-			<div class="vlt-navbar-background"></div>
-			<div class="vlt-navbar-inner">
-				<div class="vlt-navbar-inner--left">
-					<!--Logo--><a class="vlt-navbar-logo" href="index.html">MADANI FOTO</a>
-				</div>
-				<div class="vlt-navbar-inner--center">
-					<div class="container">
-						<nav class="vlt-default-menu__navigation">
-							<!--Navigation-->
-							<ul class="sf-menu">
-								<li data-menuanchor="About"><a href="#About">About</a>
-								</li>
-								<li data-menuanchor="Projects"><a href="#Projects">Product</a>
-								</li>
-								<li data-menuanchor="Education"><a href="#Education">Services</a>
-								</li>
-								<li data-menuanchor="Contact"><a href="#Contact">Contact</a>
-								</li>
-							</ul>
-						</nav>
-					</div>
-				</div>
-				<div class="vlt-navbar-inner--right">
-					<div class="d-flex align-items-center">
-						<!--Contacts-->
-						<!-- <div class="vlt-navbar-contacts"><a href="tel:+72126742510">+7 (212) 674-25-10</a></div> -->
-						<!--Menu Burger--><a class="vlt-menu-burger js-offcanvas-menu-open" href="#"><svg
-								xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-								fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"
-								stroke-linejoin="round">
-								<line x1="3" y1="12" x2="21" y2="12" />
-								<line x1="3" y1="6" x2="21" y2="6" />
-								<line x1="3" y1="18" x2="21" y2="18" />
-							</svg></a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</header>
-	<!--Offcanvas Menu-->
-	<div class="vlt-offcanvas-menu">
-		<div class="vlt-offcanvas-menu__header">
-			<!--Locales-->
-			<div class="vlt-language-switcher"><a class="is-active" href="#"></a><a href="#"></a><a href="#"></a></div>
-			<!--Menu Burger--><a class="vlt-menu-burger vlt-menu-burger--opened js-offcanvas-menu-close" href="#"><svg
-					xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="square"
-					stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
-					<defs />
-					<path d="M18 6L6 18M6 6l12 12" />
-				</svg></a>
-		</div>
-		<nav class="vlt-offcanvas-menu__navigation">
-			<!--Navigation-->
-			<ul class="sf-menu">
-				<li data-menuanchor="About"><a href="#About">About</a>
-				</li>
-				<li data-menuanchor="Projects"><a href="#Projects">Product</a>
-				</li>
-				<li data-menuanchor="Education"><a href="#Education">Services</a>
-				</li>
-				</li>
-				<li data-menuanchor="Contact"><a href="#Contact">Contact</a>
-				</li>
-			</ul>
-		</nav>
-	</div>
-	<!--Site Overlay-->
-	<div class="vlt-site-overlay"></div>
-	<!--Fixed socials-->
-	<div class="vlt-fixed-socials"><a class="vlt-social-icon vlt-social-icon--style-1"
-			href="https://www.linkedin.com/in/alfianrsa/" target="_blank"><i class="lnir-linkedin-original"></i></a>
-	</div>
-	<!--Main-->
-	<main class="vlt-main">
-		<!--Fullpage Slider-->
-		<div class="vlt-fullpage-slider" data-loop-top="" data-loop-bottom="" data-speed="450">
-			<!--Home-->
-			<!--Section-->
-			<div class="vlt-section pp-scrollable" data-anchor="Home">
-				<div class="vlt-section__vertical-align">
-					<div class="vlt-section__content">
-						<!--Ken Burn Effect-->
-						<div class="vlt-section__ken-burn-background has-mobile-image"><img src="assets/img/homes.jpg"
-								alt=""><img src="assets/img/home-mobile.jpg" alt=""></div>
-						<div class="container">
-							<div class="row">
-								<div class="col-lg-5">
-									<!-- <div class="vlt-gap-160"></div> -->
-									<!--Animated Block-->
-									<div class="vlt-animated-block" data-animation-name="fadeInUpSm"
-										style="animation-delay:0s; animation-duration:700ms;">
-									</div>
-									<!--Animated Block | no need because repetitive with the logo-->
-									<!-- <div class="vlt-animated-block" data-animation-name="fadeInUpSm" style="animation-delay:.1s; animation-duration:700ms;"><span class="vlt-display-1 has-white-color">Madani Foto</span>
-									</div> -->
-									<!--Animated Block-->
-									<div class="vlt-animated-block" data-animation-name="fadeInUpSm"
-										style="animation-delay:.2s; animation-duration:700ms;">
-										<h3 class=" ">Cetak Foto |<br> Foto Copy<span class="has-accent-color">.</span>
-										</h3>
-									</div>
-									<!--Animated Block-->
-									<div class="vlt-animated-block" data-animation-name="fadeInUpSm"
-										style="animation-delay:.3s; animation-duration:700ms;">
-										<p>Professional photography services for weddings, events, portraits, and more.
-										</p>
-										<!-- <a class="vlt-social-icon vlt-social-icon--style-2" href="https://mynsit.com/">[QS. 85 : 11]</a> -->
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!--About-->
-			<!--Section-->
-			<div class="vlt-section pp-scrollable" data-anchor="About">
-				<div class="vlt-section__vertical-align">
-					<div class="vlt-section__content">
-						<div class="container">
-							<div class="row">
-								<div class="col-xl-6">
-									<!--Animated Block-->
-									<div class="vlt-animated-block" data-animation-name="fadeInUpSm"
-										style="animation-delay:0s; animation-duration:700ms;">
-										<div class="vlt-experience-block"><span
-												class="vlt-experience-block__number">1<span
-													class="has-accent-color kecil-dikit">.9<span class="years-label">years</span></span></span>
-											<h5 class="vlt-experience-block__title">since<br>opening</h5>
-										</div>
-									</div>
-									<div class="vlt-gap-100--lg"></div>
-								</div>
-								<div class="col-xl-6 col-md-8">
+<!-- ░░ MOBILE MENU ░░ -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" id="mobileClose">&times;</button>
+  <a href="#layanan"   onclick="closeMob()">Layanan</a>
+  <a href="#keunggulan" onclick="closeMob()">Keunggulan</a>
+  <a href="#testimoni" onclick="closeMob()">Testimoni</a>
+  <a href="#kontak"    onclick="closeMob()">Kontak</a>
+</div>
 
-									<!--Animated Block-->
-									<div class="vlt-animated-block" data-animation-name="fadeInUpSm"
-										style="animation-delay:.1s; animation-duration:700ms;">
-										<h3>First Opening</h3>
-									</div>
-									<div class="vlt-gap-45"></div>
-									<!--Animated Block-->
-									<div class="vlt-animated-block" data-animation-name="fadeInUpSm"
-										style="animation-delay:.2s; animation-duration:700ms;">
-										<p>The store was open on 23rd August 2023</p>
-									</div>
-									<div class="vlt-gap-70"></div>
-									<!--Animated Block-->
-									<div class="vlt-animated-block" data-animation-name="fadeInUpSm"
-										style="animation-delay:.3s; animation-duration:700ms;">
-										<!--Progress Bar-->
-										<div class="vlt-progress-bar" data-final-value="70" data-animation-speed="2000">
-											<h5 class="vlt-progress-bar__title">Cetak Foto<span class="counter">0</span>
-											</h5>
-											<div class="vlt-progress-bar__bar"><span></span></div>
-										</div>
-									</div>
-									<div class="vlt-gap-70"></div>
-									<!--Animated Block-->
-									<div class="vlt-animated-block" data-animation-name="fadeInUpSm"
-										style="animation-delay:.4s; animation-duration:700ms;">
-										<!--Progress Bar-->
-										<div class="vlt-progress-bar" data-final-value="85" data-animation-speed="2500">
-											<h5 class="vlt-progress-bar__title">Fotocopy<span class="counter">0</span>
-											</h5>
-											<div class="vlt-progress-bar__bar"><span></span></div>
-										</div>
-									</div>
-									<div class="vlt-gap-70"></div>
-									<!--Animated Block-->
-									<div class="vlt-animated-block" data-animation-name="fadeInUpSm"
-										style="animation-delay:.5s; animation-duration:700ms;">
-										<!--Progress Bar-->
-										<div class="vlt-progress-bar" data-final-value="100"
-											data-animation-speed="3000">
-											<h5 class="vlt-progress-bar__title">Album Foto<span class="counter">0</span>
-											</h5>
-											<div class="vlt-progress-bar__bar"><span></span></div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!--Projects-->
-			<!--Section-->
-			<div class="vlt-section pp-scrollable" data-anchor="Projects">
-				<div class="vlt-section__vertical-align">
-					<div class="vlt-section__content">
-						<!--Projects-->
-						<div class="vlt-section__projects-background"><img class="is-active"
-								src="assets/img/project-01.jpg" alt="" loading="lazy"><img
-								src="assets/img/project-02.jpg" alt="" loading="lazy"><img
-								src="assets/img/project-03.jpg" alt="" loading="lazy"></div>
-						<div class="container">
-							<div class="vlt-gap-100"></div>
-							<!--Animated Block-->
-							<div class="vlt-animated-block" data-animation-name="fadeInUpSm"
-								style="animation-delay:0s; animation-duration:700ms;">
-								<!--Content slider-->
-								<div class="vlt-content-slider " data-navigation-anchor=".vlt-projects-anchor"
-									data-effect="fade" data-gap="" data-loop="" data-speed="" data-autoplay=""
-									data-autoplay-speed="" data-slides-centered="" data-slide-settings="{}"
-									data-free-mode="" data-slider-offset="" data-mousewheel="">
-									<div class="swiper-container">
-										<div class="swiper-wrapper">
-											<div class="swiper-slide">
-												<!--Product-->
-												<article class="vlt-project">
-													<h3 class="vlt-project-title">ATK<span
-															class="has-accent-color">.</span>
-														<div class="vlt-animated-block" data-animation-name="fadeInUpSm"
-															style="animation-delay:.1s; animation-duration:700ms;"><span
-																class="vlt-display-1 has-white-color">Alat Tulis
-																Kantor</span></div>
-													</h3>
-													<div class="vlt-project-excerpt">
-														<p>Tersedia berbagai pilihan pena, pensil, buku, map, kertas,
-															dan perlengkapan lainnya dengan harga terjangkau. Cocok
-															untuk kantor, sekolah, atau penggunaan pribadi.</p>
-													</div>
-													<!--Button--><a class="vlt-btn vlt-btn--primary vlt-btn--md"
-														href="#" target="_self">See Project</a>
-												</article>
-											</div>
-											<div class="swiper-slide">
-												<!--Product-->
-												<article class="vlt-project">
-													<h3 class="vlt-project-title">Cetak Foto<span
-															class="has-accent-color">.</span></h3>
-													<div class="vlt-project-excerpt">
-														<p>Abadikan momen spesial jadi kenangan abadi.</p>
-													</div>
-													<!--Button--><a class="vlt-btn vlt-btn--primary vlt-btn--md"
-														href="#" target="_self">See Project</a>
-												</article>
-											</div>
-											<div class="swiper-slide">
-												<!--Product-->
-												<article class="vlt-project">
-													<h3 class="vlt-project-title">Fotocopy<span
-															class="has-accent-color">.</span></h3>
-													<div class="vlt-project-excerpt">
-														<p>Layanan fotocopy cepat, rapi, dan berkualitas.</p>
-													</div>
-													<!--Button--><a class="vlt-btn vlt-btn--primary vlt-btn--md"
-														href="#" target="_self">See Project</a>
-												</article>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="vlt-gap-150"></div>
-								<!--Slider controls-->
-								<div class="vlt-slider-controls vlt-slider-controls--style-2 vlt-projects-anchor">
-									<div class="vlt-swiper-pagination"></div>
-									<div class="vlt-swiper-button-prev"><svg xmlns="http://www.w3.org/2000/svg"
-											fill="none" viewBox="0 0 24 45">
-											<defs />
-											<path fill="currentColor" fill-rule="evenodd"
-												d="M1.36413 22.5795L24 43.9524l-.7271.6865L.272896 22.9223l.383716-.3623-.362754-.3367L23.0941.319721l.733.680233L1.36413 22.5795z"
-												clip-rule="evenodd" />
-										</svg></div>
-									<div class="vlt-swiper-button-next"><svg fill="none"
-											xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 45">
-											<defs />
-											<path fill-rule="evenodd" clip-rule="evenodd"
-												d="M22.6359 22.3728L0 1.00001.727101.313477 23.7271 22.0301l-.3837.3623.3627.3367L.905866 44.6327l-.732997-.6803L22.6359 22.3728z"
-												fill="currentColor" />
-										</svg></div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!--Education-->
-			<!--Section-->
-			<div class="vlt-section pp-scrollable" data-anchor="Education">
-				<div class="vlt-section__vertical-align">
-					<div class="vlt-section__content">
-						<div class="container">
-							<div class="vlt-gap-70"></div>
-							<!--Animated Block-->
-							<div class="vlt-animated-block" data-animation-name="fadeInUpSm"
-								style="animation-delay:0s; animation-duration:700ms;">
-								<div class="d-block d-md-flex align-items-center justify-content-between">
-									<h3>Education</h3>
-									<div class="vlt-gap-30--sm"></div>
-									<!--Button--><a class="vlt-btn vlt-btn--primary vlt-btn--md" href="#"
-										target="_self">Download Resume</a>
-								</div>
-							</div>
-							<div class="vlt-gap-50"></div>
-							<!--Animated Block-->
-							<div class="vlt-animated-block" data-animation-name="fadeInUpSm"
-								style="animation-delay:.1s; animation-duration:700ms;">
-								<!--Content slider-->
-								<div class="vlt-content-slider " data-navigation-anchor=".vlt-education-anchor"
-									data-effect="" data-gap="120" data-loop="" data-speed="" data-autoplay=""
-									data-autoplay-speed="" data-slides-centered="" data-slide-settings="{}"
-									data-free-mode="" data-slider-offset="" data-mousewheel="">
-									<div class="swiper-container">
-										<div class="swiper-wrapper">
-											<div class="swiper-slide">
-												<!--Timeline Item-->
-												<div class="vlt-timeline-item">
-													<div class="row">
-														<div class="col-xl-4"><img
-																src="assets/img/root/logo-UM-putih.png"
-																alt="University-Malaya" loading="lazy">
-														</div>
-														<div class="col-xl-4"><span class="vlt-timeline-item__date">2022
-																- 2023</span>
-															<h5 class="vlt-timeline-item__title">University of Malaya
-															</h5>
-														</div>
-														<div class="col-xl-4">
-															<p class="vlt-timeline-item__text">Master of Data Science
-															</p>
-														</div>
-													</div>
-												</div>
-												<!--Timeline Item-->
-												<div class="vlt-timeline-item">
-													<div class="row">
-														<div class="col-xl-4"><img
-																src="assets/img/root/iium-logo-muted.png" alt="IIUM"
-																loading="lazy">
-														</div>
-														<div class="col-xl-4"><span class="vlt-timeline-item__date">2014
-																- 2018</span>
-															<h5 class="vlt-timeline-item__title">International Islamic
-																University Malaysia</h5>
-														</div>
-														<div class="col-xl-4">
-															<p class="vlt-timeline-item__text">Bachelor of Information
-																Technology</p>
-														</div>
-													</div>
-												</div>
-											</div>
-											<div class="swiper-slide">
-												<!--Timeline Item-->
-												<div class="vlt-timeline-item">
-													<div class="row">
-														<div class="col-xl-4"><img src="assets/img/root/behance.png"
-																alt="Behance" loading="lazy">
-														</div>
-														<div class="col-xl-4"><span class="vlt-timeline-item__date">2019
-																- 2020</span>
-															<h5 class="vlt-timeline-item__title">Behance</h5>
-														</div>
-														<div class="col-xl-4">
-															<p class="vlt-timeline-item__text">Which firmament dominion
-																first rule and tree. The seas he i were cattle Under
-																living. It may beast every forth place.</p>
-														</div>
-													</div>
-												</div>
-												<!--Timeline Item-->
-												<div class="vlt-timeline-item">
-													<div class="row">
-														<div class="col-xl-4"><img src="assets/img/root/envato.png"
-																alt="Envato" loading="lazy">
-														</div>
-														<div class="col-xl-4"><span class="vlt-timeline-item__date">2017
-																- 2018</span>
-															<h5 class="vlt-timeline-item__title">Envato</h5>
-														</div>
-														<div class="col-xl-4">
-															<p class="vlt-timeline-item__text">Rule bearing whales.
-																Created gathering blessed, sixth likeness male. Over
-																were which you'll so be make moveth made saw above.</p>
-														</div>
-													</div>
-												</div>
-												<!--Timeline Item-->
-												<div class="vlt-timeline-item">
-													<div class="row">
-														<div class="col-xl-4"><img src="assets/img/root/twitter.png"
-																alt="Twitter" loading="lazy">
-														</div>
-														<div class="col-xl-4"><span class="vlt-timeline-item__date">2015
-																- 2018</span>
-															<h5 class="vlt-timeline-item__title">Twitter</h5>
-														</div>
-														<div class="col-xl-4">
-															<p class="vlt-timeline-item__text">Firmament itself rule
-																their evening, which moved very night so great them
-																cattle bearing and gathered forth had whose bearing.</p>
-														</div>
-													</div>
-												</div>
-											</div>
-											<div class="swiper-slide">
-												<!--Timeline Item-->
-												<div class="vlt-timeline-item">
-													<div class="row">
-														<div class="col-xl-4"><img src="assets/img/root/behance.png"
-																alt="Behance" loading="lazy">
-														</div>
-														<div class="col-xl-4"><span class="vlt-timeline-item__date">2019
-																- 2020</span>
-															<h5 class="vlt-timeline-item__title">Behance</h5>
-														</div>
-														<div class="col-xl-4">
-															<p class="vlt-timeline-item__text">Which firmament dominion
-																first rule and tree. The seas he i were cattle Under
-																living. It may beast every forth place.</p>
-														</div>
-													</div>
-												</div>
-												<!--Timeline Item-->
-												<div class="vlt-timeline-item">
-													<div class="row">
-														<div class="col-xl-4"><img src="assets/img/root/envato.png"
-																alt="Envato" loading="lazy">
-														</div>
-														<div class="col-xl-4"><span class="vlt-timeline-item__date">2017
-																- 2018</span>
-															<h5 class="vlt-timeline-item__title">Envato</h5>
-														</div>
-														<div class="col-xl-4">
-															<p class="vlt-timeline-item__text">Rule bearing whales.
-																Created gathering blessed, sixth likeness male. Over
-																were which you'll so be make moveth made saw above.</p>
-														</div>
-													</div>
-												</div>
-												<!--Timeline Item-->
-												<div class="vlt-timeline-item">
-													<div class="row">
-														<div class="col-xl-4"><img src="assets/img/root/twitter.png"
-																alt="Twitter" loading="lazy">
-														</div>
-														<div class="col-xl-4"><span class="vlt-timeline-item__date">2015
-																- 2018</span>
-															<h5 class="vlt-timeline-item__title">Twitter</h5>
-														</div>
-														<div class="col-xl-4">
-															<p class="vlt-timeline-item__text">Firmament itself rule
-																their evening, which moved very night so great them
-																cattle bearing and gathered forth had whose bearing.</p>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="vlt-gap-75"></div>
-								<!--Slider controls-->
-								<div class="vlt-slider-controls vlt-slider-controls--style-2 vlt-education-anchor">
-									<div class="vlt-swiper-pagination"></div>
-									<div class="vlt-swiper-button-prev"><svg xmlns="http://www.w3.org/2000/svg"
-											fill="none" viewBox="0 0 24 45">
-											<defs />
-											<path fill="currentColor" fill-rule="evenodd"
-												d="M1.36413 22.5795L24 43.9524l-.7271.6865L.272896 22.9223l.383716-.3623-.362754-.3367L23.0941.319721l.733.680233L1.36413 22.5795z"
-												clip-rule="evenodd" />
-										</svg></div>
-									<div class="vlt-swiper-button-next"><svg fill="none"
-											xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 45">
-											<defs />
-											<path fill-rule="evenodd" clip-rule="evenodd"
-												d="M22.6359 22.3728L0 1.00001.727101.313477 23.7271 22.0301l-.3837.3623.3627.3367L.905866 44.6327l-.732997-.6803L22.6359 22.3728z"
-												fill="currentColor" />
-										</svg></div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!--Contact-->
-			<!--Section-->
-			<div class="vlt-section pp-scrollable" data-anchor="Contact">
-				<div class="vlt-section__vertical-align">
-					<div class="vlt-section__content">
-						<!--Ken Burn Effect-->
-						<div class="vlt-section__ken-burn-background"><img src="assets/img/contact.jpg" alt=""></div>
-						<div class="container">
-							<div class="row">
-								<div class="col-xl-4">
-									<!--Animated Block-->
-									<div class="vlt-animated-block" data-animation-name="fadeInUpSm"
-										style="animation-delay:0s; animation-duration:700ms;">
-										<h3>Contact</h3>
-										<div class="vlt-gap-30"></div>
-										<div class="vlt-gap-40"></div>
-										<address>Kuala Lumpur, MY</address>
-									</div>
-								</div>
-								<div class="col-xl-6 offset-xl-2">
-									<div class="vlt-gap-70--lg"></div>
-									<!--Animated Block-->
-									<div class="vlt-animated-block" data-animation-name="fadeInUpSm"
-										style="animation-delay:.1s; animation-duration:700ms;">
-										<h4>Let's grab a coffee and jump on conversation <span
-												class="has-accent-color">chat with me.</span></h4>
-										<div class="vlt-gap-20"></div>
-										<form class="vlt-contact-form" novalidate="novalidate">
-											<div class="vlt-form-group">
-												<input type="text" id="name" name="name" required="required"
-													placeholder="Your Name">
-											</div>
-											<div class="vlt-form-group">
-												<input type="email" id="email" name="email" required="required"
-													placeholder="Your Email">
-											</div>
-											<div class="vlt-form-group">
-												<textarea name="message" id="message" rows="3"
-													placeholder="Message"></textarea>
-											</div>
-											<div class="message success">Your message is successfully sent...</div>
-											<div class="message danger">Sorry something went wrong!</div>
-											<!--Button-->
-											<button class="vlt-btn vlt-btn--primary vlt-btn--md">Contact Me</button>
-										</form>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!--Progress Bar-->
-			<div class="vlt-fullpage-slider-progress-bar"><span></span></div>
-		</div>
-	</main>
-	<!--Footer-->
-	<footer class="vlt-footer vlt-footer--default vlt-footer--fixed">
-		<div class="vlt-footer-copyright">
-			<p>© MADANI FOTO. 2023</p>
-		</div>
-	</footer>
-	<!--Libs-->
-	<script src="assets/vendors/jquery-3.5.1.min.js"></script>
-	<script src="assets/scripts/vlt-plugins.min.js"></script>
-	<script src="assets/scripts/vlt-helpers.js"></script>
-	<script src="assets/scripts/vlt-controllers.min.js"></script>
+<!-- ░░ NAVBAR ░░ -->
+<nav class="navbar" id="navbar">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <img src="assets/img/root/logo madani.png" alt="Logo Madani Foto" onerror="this.style.display='none'">
+        <span class="nav-logo-text">Madani Foto</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#layanan">Layanan</a></li>
+        <li><a href="#keunggulan">Keunggulan</a></li>
+        <li><a href="#testimoni">Testimoni</a></li>
+        <li><a href="#kontak">Kontak</a></li>
+      </ul>
+      <a class="btn-wa" href="https://wa.me/6281219637465" target="_blank">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M5.37 16.83l.43-1.578c-.578-1.003-.884-2.144-.884-3.302C4.916 8.32 8.154 5.082 12 5.082c1.924 0 3.726.748 5.086 2.108A7.157 7.157 0 0119.194 12c0 3.846-3.238 7.084-7.084 7.084a7.1 7.1 0 01-3.4-.866L5.37 16.83z"/></svg>
+        Chat WhatsApp
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Buka menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ░░ HERO ░░ -->
+<section class="hero" id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-badge">Toko Foto &amp; Percetakan Terpercaya</div>
+      <h1>Toko <span class="gold">Madani</span><br>Foto</h1>
+      <p class="hero-sub">Kualitas Terbaik, Harga Bersahabat</p>
+      <p class="hero-desc">Melayani kebutuhan cetak foto, studio profesional, fotocopy, dan berbagai layanan percetakan. Dipercaya ribuan pelanggan sejak 2023.</p>
+      <div class="hero-actions">
+        <a class="btn-primary" href="https://wa.me/6281219637465?text=Halo%20Madani%20Foto%2C%20saya%20ingin%20memesan" target="_blank">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M5.37 16.83l.43-1.578c-.578-1.003-.884-2.144-.884-3.302C4.916 8.32 8.154 5.082 12 5.082c1.924 0 3.726.748 5.086 2.108A7.157 7.157 0 0119.194 12c0 3.846-3.238 7.084-7.084 7.084a7.1 7.1 0 01-3.4-.866L5.37 16.83z"/></svg>
+          Pesan Sekarang
+        </a>
+        <a class="btn-outline" href="#layanan">
+          Lihat Layanan
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div><div class="stat-num">1000+</div><div class="stat-label">Pelanggan Puas</div></div>
+        <div><div class="stat-num">8+</div><div class="stat-label">Jenis Layanan</div></div>
+        <div><div class="stat-num">2+</div><div class="stat-label">Tahun Berpengalaman</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ SERVICES ░░ -->
+<section class="services" id="layanan">
+  <div class="container">
+    <div class="tc reveal">
+      <div class="sec-label">Layanan Kami</div>
+      <h2 class="sec-title">Semua Kebutuhan Cetak &amp; Foto<br>Ada di Sini</h2>
+      <p class="sec-desc">Dari cetak foto hingga jersey custom, kami siap memenuhi setiap kebutuhan Anda dengan kualitas terbaik dan harga terjangkau.</p>
+    </div>
+    <div class="services-grid">
+
+      <div class="svc-card reveal d1">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="14" rx="2"/><path d="M3 10h18"/><circle cx="12" cy="15" r="2.5"/><path d="M9 6V4h6v2"/></svg>
+        </div>
+        <h3>Cetak Foto</h3>
+        <p>Cetak foto berbagai ukuran dengan warna tajam dan tahan lama. Tersedia berbagai format dan pilihan finishing premium.</p>
+      </div>
+
+      <div class="svc-card reveal d2">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
+        </div>
+        <h3>Foto Studio</h3>
+        <p>Studio profesional dengan pencahayaan sempurna. Ideal untuk foto KTP, pas foto, wisuda, dan pemotretan keluarga.</p>
+      </div>
+
+      <div class="svc-card reveal d3">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+        </div>
+        <h3>Foto Copy</h3>
+        <p>Layanan fotocopy cepat dan rapi. Tersedia untuk dokumen biasa, bolak-balik, skala A3/A4, dan berbagai kebutuhan lainnya.</p>
+      </div>
+
+      <div class="svc-card reveal d1">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+        </div>
+        <h3>ATK</h3>
+        <p>Lengkap alat tulis kantor — pena, pensil, buku, map, kertas, stapler, dan berbagai perlengkapan kantor harga terjangkau.</p>
+      </div>
+
+      <div class="svc-card reveal d2">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <h3>Cetak Undangan</h3>
+        <p>Cetak undangan pernikahan, khitan, ulang tahun, dan acara spesial lainnya. Desain elegan, kertas premium, harga bersahabat.</p>
+      </div>
+
+      <div class="svc-card reveal d3">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+        </div>
+        <h3>Nametag</h3>
+        <p>Cetak nametag profesional untuk seminar, konferensi, event perusahaan, dan keperluan identitas organisasi lainnya.</p>
+      </div>
+
+      <div class="svc-card reveal d1">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><path d="M20.38 3.46L16 2a4 4 0 01-8 0L3.62 3.46a2 2 0 00-1.34 2.23l.58 3.57a1 1 0 00.99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 002-2V10h2.15a1 1 0 00.99-.84l.58-3.57a2 2 0 00-1.34-2.23z"/></svg>
+        </div>
+        <h3>Jersey Printing</h3>
+        <p>Custom jersey dengan desain bebas sesuai keinginan. Tersedia berbagai bahan dan teknik printing untuk tim olahraga maupun komunitas.</p>
+      </div>
+
+      <div class="svc-card reveal d2">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+        </div>
+        <h3>Agen Skincare Batrisyia</h3>
+        <p>Agen resmi Batrisyia Herbal. Produk skincare berbahan alami, aman, dan sudah teruji klinis untuk kecantikan kulit wajah.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ░░ WHY CHOOSE US ░░ -->
+<section class="why-us" id="keunggulan">
+  <div class="container">
+    <div class="why-grid">
+      <div>
+        <div class="reveal">
+          <div class="sec-label">Mengapa Pilih Kami</div>
+          <h2 class="sec-title">Kualitas Yang Tidak<br>Pernah Mengecewakan</h2>
+          <p class="sec-desc">Sejak 2023, Madani Foto hadir sebagai solusi percetakan dan fotografi terpercaya — berkomitmen menghadirkan hasil terbaik untuk setiap pelanggan.</p>
+        </div>
+        <div class="why-features">
+          <div class="feat reveal d1">
+            <div class="feat-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div class="feat-body">
+              <h4>Kualitas Terjamin</h4>
+              <p>Mesin cetak modern dengan tinta premium, hasil tajam dan awet</p>
+            </div>
+          </div>
+          <div class="feat reveal d2">
+            <div class="feat-icon">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div class="feat-body">
+              <h4>Pengerjaan Cepat</h4>
+              <p>Proses cepat tanpa mengorbankan kualitas hasil akhir</p>
+            </div>
+          </div>
+          <div class="feat reveal d3">
+            <div class="feat-icon">
+              <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+            </div>
+            <div class="feat-body">
+              <h4>Harga Bersahabat</h4>
+              <p>Harga kompetitif dan transparan, tidak menguras kantong</p>
+            </div>
+          </div>
+          <div class="feat reveal d4">
+            <div class="feat-icon">
+              <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+            </div>
+            <div class="feat-body">
+              <h4>Pelayanan Ramah</h4>
+              <p>Tim kami siap membantu dan memberikan konsultasi terbaik</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="why-visual reveal">
+        <div class="why-img-wrap">
+          <img src="assets/img/barna-bartis-2x3vfVxwR7o-unsplash.jpg" alt="Studio Madani Foto" loading="lazy">
+          <div class="why-img-overlay"></div>
+          <div class="why-floater">
+            <div class="floater-icon">★</div>
+            <div class="floater-body">
+              <h5>Rating Pelanggan</h5>
+              <p>4.9 / 5 dari 200+ ulasan positif</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ TESTIMONIALS ░░ -->
+<section class="testimonials" id="testimoni">
+  <div class="container">
+    <div class="tc reveal">
+      <div class="sec-label">Testimoni</div>
+      <h2 class="sec-title">Kata Mereka tentang<br>Madani Foto</h2>
+      <p class="sec-desc">Kepercayaan pelanggan adalah prioritas kami. Simak pengalaman nyata mereka bersama Madani Foto.</p>
+    </div>
+    <div class="testi-grid">
+
+      <div class="testi-card reveal d1">
+        <div class="stars">★★★★★</div>
+        <p>"Hasil cetak fotonya bagus banget! Warna keluar tajam dan sesuai aslinya. Prosesnya cepat, langsung jadi dalam hitungan menit. Puas banget, pasti balik lagi!"</p>
+        <div class="testi-author">
+          <div class="avatar">S</div>
+          <div>
+            <div class="author-name">Sari Wulandari</div>
+            <div class="author-role">Pelanggan Cetak Foto</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card reveal d2">
+        <div class="stars">★★★★★</div>
+        <p>"Cetak undangan nikahan di sini mantap! Desainnya elegan, kertasnya premium, harganya terjangkau. Banyak tamu yang nanya undangannya cetak di mana, hehe."</p>
+        <div class="testi-author">
+          <div class="avatar">R</div>
+          <div>
+            <div class="author-name">Rizky Ahmad</div>
+            <div class="author-role">Pelanggan Cetak Undangan</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card reveal d3">
+        <div class="stars">★★★★★</div>
+        <p>"Jersey tim futsal kita dicetak di sini, hasilnya keren parah! Sablonannya rapi dan awet, udah berkali-kali dicuci masih bagus. Recommended banget!"</p>
+        <div class="testi-author">
+          <div class="avatar">B</div>
+          <div>
+            <div class="author-name">Bagas Pratama</div>
+            <div class="author-role">Pelanggan Jersey Printing</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ░░ CTA / CONTACT ░░ -->
+<section class="cta" id="kontak">
+  <div class="container">
+    <div class="cta-inner reveal">
+      <div class="sec-label" style="justify-content:center">Hubungi Kami</div>
+      <h2 class="sec-title">Siap Memesan?<br>Hubungi Kami Sekarang!</h2>
+      <p>Pesan via WhatsApp untuk info harga, konsultasi desain, atau pertanyaan lainnya. Kami siap melayani Anda dengan cepat dan ramah!</p>
+      <div class="cta-btns">
+        <a class="btn-wa-lg" href="https://wa.me/6281219637465?text=Halo%20Madani%20Foto%2C%20saya%20ingin%20memesan" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M5.37 16.83l.43-1.578c-.578-1.003-.884-2.144-.884-3.302C4.916 8.32 8.154 5.082 12 5.082c1.924 0 3.726.748 5.086 2.108A7.157 7.157 0 0119.194 12c0 3.846-3.238 7.084-7.084 7.084a7.1 7.1 0 01-3.4-.866L5.37 16.83z"/></svg>
+          Chat WhatsApp
+        </a>
+        <a class="btn-primary" href="#layanan">Lihat Semua Layanan</a>
+      </div>
+      <div class="cta-meta">
+        <div class="meta-item">
+          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Indonesia
+        </div>
+        <div class="meta-item">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Buka Setiap Hari
+        </div>
+        <div class="meta-item">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.88 11.5 19.79 19.79 0 01.82 2.87 2 2 0 012.82 1H5.9a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 8.9a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+          Respon Cepat
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ FOOTER ░░ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="nav-logo-text">Madani Foto</span>
+        <p>Toko foto dan percetakan terpercaya yang melayani kebutuhan cetak foto, studio, dan berbagai layanan percetakan profesional sejak 2023.</p>
+        <div class="socials">
+          <a href="#" title="Instagram">📷</a>
+          <a href="https://wa.me/6281219637465" target="_blank" title="WhatsApp">💬</a>
+          <a href="#" title="Facebook">📘</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Layanan</h5>
+        <ul>
+          <li><a href="#layanan">Cetak Foto</a></li>
+          <li><a href="#layanan">Foto Studio</a></li>
+          <li><a href="#layanan">Foto Copy</a></li>
+          <li><a href="#layanan">ATK</a></li>
+          <li><a href="#layanan">Cetak Undangan</a></li>
+          <li><a href="#layanan">Nametag</a></li>
+          <li><a href="#layanan">Jersey Printing</a></li>
+          <li><a href="#layanan">Agen Skincare Batrisyia</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Informasi</h5>
+        <ul>
+          <li><a href="#keunggulan">Tentang Kami</a></li>
+          <li><a href="#testimoni">Testimoni</a></li>
+          <li><a href="#kontak">Kontak</a></li>
+          <li><a href="https://wa.me/6281219637465" target="_blank">WhatsApp Kami</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Madani Foto. Semua hak dilindungi.</p>
+      <p>Dibuat dengan ❤ untuk pelanggan kami</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Navbar scroll
+  const nav = document.getElementById('navbar');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 50));
+
+  // Mobile menu
+  const mob = document.getElementById('mobileMenu');
+  document.getElementById('hamburger').addEventListener('click', () => {
+    mob.classList.add('open'); document.body.style.overflow = 'hidden';
+  });
+  document.getElementById('mobileClose').addEventListener('click', closeMob);
+  function closeMob() { mob.classList.remove('open'); document.body.style.overflow = ''; }
+
+  // Scroll reveal
+  const obs = new IntersectionObserver(entries =>
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); }),
+    { threshold: 0.1 }
+  );
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
 </body>
-
 </html>
